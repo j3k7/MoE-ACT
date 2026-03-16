@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的玄学小工具</title>
+    <style>
+        /* 这里是给网页穿衣服（CSS） */
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; background-color: #f4f4f4; }
+        .card { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        button { padding: 10px 20px; cursor: pointer; background: #5c67f2; color: white; border: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>🔮 今日运势查询</h1>
+        <p id="result">点击下方按钮，测测你的今日玄学分</p>
+        <button onclick="checkLuck()">开始测算</button>
+    </div>
+
+    <script>
+        // 这里是给网页大脑（JavaScript）
+        function checkLuck() {
+            const scores = ["大吉 🌟", "中吉 ☀️", "小吉 ☁️", "末吉 🍀", "凶 👻"];
+            const randomScore = scores[Math.floor(Math.random() * scores.length)];
+            document.getElementById('result').innerText = "测算结果：" + randomScore;
+        }
+    </script>
+
+</body>
+</html>
