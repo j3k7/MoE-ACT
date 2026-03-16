@@ -1,31 +1,82 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>我的玄学小工具</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoE-ACT Project Page</title>
     <style>
-        /* 这里是给网页穿衣服（CSS） */
-        body { font-family: sans-serif; text-align: center; padding-top: 50px; background-color: #f4f4f4; }
-        .card { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        button { padding: 10px 20px; cursor: pointer; background: #5c67f2; color: white; border: none; border-radius: 5px; }
+        /* 简约专业学术风格 */
+        body {
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #003399; /* 专业深蓝色 */
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .subtitle {
+            font-size: 1.4rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+        .coming-soon-badge {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 2px solid #003399;
+            border-radius: 50px;
+            color: #003399;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 1.1rem;
+            animation: breathe 2.5s infinite ease-in-out;
+        }
+        /* 呼吸灯动画效果 */
+        @keyframes breathe {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .footer {
+            margin-top: 80px;
+            font-size: 0.9rem;
+            color: #aaa;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>🔮 今日运势查询</h1>
-        <p id="result">点击下方按钮，测测你的今日玄学分</p>
-        <button onclick="checkLuck()">开始测算</button>
-    </div>
+    <div class="container">
+        <h1>MoE-ACT</h1>
+        <p class="subtitle">
+            Scaling Multi-Task Bimanual Manipulation with Sparse Language-Conditioned Mixture-of-Experts Transformers
+        </p>
+        
+        <div class="coming-soon-badge">
+            Coming Soon
+        </div>
 
-    <script>
-        // 这里是给网页大脑（JavaScript）
-        function checkLuck() {
-            const scores = ["大吉 🌟", "中吉 ☀️", "小吉 ☁️", "末吉 🍀", "凶 👻"];
-            const randomScore = scores[Math.floor(Math.random() * scores.length)];
-            document.getElementById('result').innerText = "测算结果：" + randomScore;
-        }
-    </script>
+        <div class="footer">
+            © 2026 MoE-ACT Project Team.
+        </div>
+    </div>
 
 </body>
 </html>
