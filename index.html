@@ -1,82 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoE-ACT Project Page</title>
+    <title>MoE-ACT: Scaling Multi-Task Bimanual Manipulation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
     <style>
-        /* 简约专业学术风格 */
+        :root {
+            --primary-blue: #0071e3;
+            /* 苹果/学术常用的专业蓝 */
+            --text-main: #1d1d1f;
+            --text-sub: #6e6e73;
+            --bg-gray: #f5f5f7;
+        }
+
         body {
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-family: 'Inter', 'Google Sans', sans-serif;
             background-color: #ffffff;
-            color: #222;
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px 80px 20px;
+        }
+
+        /* 标题设计 */
+        .title-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -1.2px;
+            margin-bottom: 25px;
+            line-height: 1.35;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Google Sans', sans-serif;
+            color: var(--text-main);
+            display: inline-block;
+            padding: 0 20px;
+            max-width: 95vw;
+        }
+
+        .highlight-blue {
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .authors {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        .authors a {
+            color: inherit;
+            text-decoration: none;
+            margin: 0 4px;
+        }
+
+        .author-notes {
+            font-size: 1rem;
+            color: var(--text-sub);
+            margin-bottom: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .affiliations {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-bottom: 25px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        sup {
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+
+        /* 按钮设计 */
+        .links {
             display: flex;
             justify-content: center;
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            background: #000;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            display: inline-flex;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        .github-icon {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+        }
+
+        .logo-icon {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+        }
+
+        /* 摘要区块 */
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 25px;
             text-align: center;
         }
-        .container {
-            max-width: 900px;
+
+        .abstract-box {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            font-size: 1.3rem;
+            color: #444;
+            text-align: justify;
+            line-height: 1.7;
         }
-        h1 {
-            font-size: 3rem;
-            color: #003399; /* 专业深蓝色 */
+
+        /* 视频展示区 - 重点优化 */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* 两个视频并排 */
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .main-video {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             margin-bottom: 20px;
-            font-weight: 800;
         }
-        .subtitle {
-            font-size: 1.4rem;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 60px;
-            font-weight: 400;
+
+        .video-item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
-        .coming-soon-badge {
-            display: inline-block;
-            padding: 12px 35px;
-            border: 2px solid #003399;
-            border-radius: 50px;
-            color: #003399;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 1.1rem;
-            animation: breathe 2.5s infinite ease-in-out;
+
+        video {
+            width: 100%;
+            display: block;
         }
-        /* 呼吸灯动画效果 */
-        @keyframes breathe {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.98); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        .footer {
-            margin-top: 80px;
+
+        /* BibTeX 引用区 */
+        .bibtex-section pre {
+            background: var(--bg-gray);
+            color: var(--text-main);
+            padding: 25px;
+            border-radius: 12px;
             font-size: 0.9rem;
-            color: #aaa;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--text-sub);
+            font-size: 0.9rem;
             border-top: 1px solid #eee;
-            padding-top: 20px;
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
-        <h1>MoE-ACT</h1>
-        <p class="subtitle">
-            Scaling Multi-Task Bimanual Manipulation with Sparse Language-Conditioned Mixture-of-Experts Transformers
-        </p>
+        <header class="title-section">
+            <h1><span class="highlight-blue">MoE-ACT</span>: Scaling Multi-Task Bimanual Manipulation<br>with Sparse Language-Conditioned Mixture-of-Experts Transformers</h1>
+            <div class="authors">
+                <a href="#">Kangjun Guo</a><sup>1</sup>, <a href="#">Haichao Liu</a><sup>1</sup>, <a href="#">Yanji Sun</a><sup>1</sup>, <a href="#">Ruhan Zhao</a><sup>1</sup>, <a href="#">Jinni Zhou</a><sup>1</sup>, <a href="#">Jun Ma</a><sup>1,2,†</sup>
+            </div>
+            <div class="author-notes">
+                <sup>†</sup>Corresponding Author.
+            </div>
+            <div class="affiliations">
+                <sup>1</sup>The Hong Kong University of Science and Technology (Guangzhou), <sup>2</sup>The Hong Kong University of Science and Technology
+            </div>
+            <div class="links">
+                <a href="http://arxiv.org/abs/2603.15265" class="btn"><svg class="logo-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg>ArXiv</a>
+                <a href="#" class="btn"><svg class="github-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>Code (Coming soon)</a>
+            </div>
+        </header>
         
-        <div class="coming-soon-badge">
-            Coming Soon
+        <div style="text-align: center; margin-bottom: 60px;">
+            <video class="main-video" controls autoplay muted loop playsinline style="max-width: 1000px; margin: 0 auto;">
+                <source src="video.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+            </video>
         </div>
 
-        <div class="footer">
+        <section class="section">
+            <h2 class="section-title">Abstract</h2>
+            <div style="margin-bottom: 15px;">
+                <img src="16.png" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); opacity: 0.98;">
+            </div>
+            <div class="abstract-box">
+                The ability of robots to handle multiple tasks under a unified policy is critical for deploying embodied intelligence in real-world household and industrial applications. However, out-of-distribution variation across tasks often causes severe task interference and negative transfer when training general robotic policies. To address this challenge, we propose a lightweight multi-task imitation learning framework for bimanual manipulation, termed Mixture-of-Experts-Enhanced Action Chunking Transformer (MoE-ACT), which integrates sparse Mixture-of-Experts (MoE) modules into the Transformer encoder of ACT. The MoE layer decomposes a unified task policy into independently invoked expert components. Through adaptive activation, it naturally decouples multi-task action distributions in latent space. During decoding, Feature-wise Linear Modulation (FiLM) dynamically modulates action tokens to improve consistency between action generation and task instructions. In parallel, multi-scale cross-attention enables the policy to simultaneously focus on both low-level and high-level semantic features, providing rich visual information for robotic manipulation. We further incorporate textual information, transitioning the framework from a purely vision-based model to a vision-centric, language-conditioned action generation system. Experimental validation in both simulation and a real-world dual-arm setup shows that MoE-ACT substantially improves multi-task performance. Specifically, MoE-ACT outperforms vanilla ACT by an average of 33% in success rate. These results indicate that MoE-ACT provides stronger robustness and generalization in complex multi-task bimanual manipulation environments.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Simulation Experimental Results</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <p style="text-align: center; padding: 10px 0 8px 0; margin: 0; font-size: 1.2rem; color: #000; font-weight: 600;">Handover Block</p>
+                    <video controls muted loop>
+                        <source src="combined_handover_block.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-item">
+                    <p style="text-align: center; padding: 10px 0 8px 0; margin: 0; font-size: 1.2rem; color: #000; font-weight: 600;">Lift Pot</p>
+                    <video controls muted loop>
+                        <source src="combined_top_bottom.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Experimental Results</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <p style="text-align: center; padding: 10px 0 8px 0; margin: 0; font-size: 1.2rem; color: #000; font-weight: 600;">Task A: Handover Bottle</p>
+                    <video controls muted loop>
+                        <source src="video2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-item">
+                    <p style="text-align: center; padding: 10px 0 8px 0; margin: 0; font-size: 1.2rem; color: #000; font-weight: 600;">Task B: Putting Cubes into a Box</p>
+                    <video controls muted loop>
+                        <source src="video3.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bibtex-section">
+            <h2 class="section-title">BibTeX</h2>
+            <pre><code>@misc{guo2026moeactscalingmultitaskbimanual,
+      title={MoE-ACT: Scaling Multi-Task Bimanual Manipulation with Sparse Language-Conditioned Mixture-of-Experts Transformers}, 
+      author={Kangjun Guo and Haichao Liu and Yanji Sun and Ruhan Zhao and Jinni Zhou and Jun Ma},
+      year={2026},
+      eprint={2603.15265},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2603.15265}
+}</code></pre>
+        </section>
+
+        <footer class="footer">
             © 2026 MoE-ACT Project Team.
-        </div>
+    </div>
     </div>
 
 </body>
+
 </html>
